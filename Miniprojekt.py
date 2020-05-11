@@ -8,6 +8,7 @@ ett=0
 x=0
 två=0
 i=0
+n=0
 
 band = True
 
@@ -22,6 +23,16 @@ def svar(val,alternativ):
             två += 1
         elif alternativ== "X" or "x":
             x += 1
+
+def fruktfrågor():
+    fruktkopia = fruktenskaper
+    z = fruktkopia.pop(random.randint(0,len(fruktkopia)-1))
+    print(z)
+    b=input("\n >").upper()
+    svar(b,"1")
+    svar(b,"X")
+    svar(b,"2")
+
 
 def res1(var,frukt):
     if var >= 5:
@@ -46,13 +57,24 @@ def poängen(gissa,svar):
 
 def frågorna():
     kopia = frågor
-    # rand = random.randint(0,len(kopia))
     a = kopia.pop(random.randint(0,len(kopia)-1))
     frågan = a[0]
     svaret = a[1]
     print(frågan)
     f = input('>').upper()
     poängen(f,svaret)
+
+fruktenskaper = [
+    "\n \n En varm sommardag föredrar jag... \n 1) att ligga ute och jäsa i solen \n X) att vara innomhus i den sköna skuggan \n 2) att ligga i (jord)källaren och vänta på bättre tider",
+    "\n \n Jag tycker bäst om \n 1) klara, starka färger som syns! \n X) färger som inte är så uppseendeväckande, fast fortfarande färger \n 2) svart. Eller andra jordnära färger som smälter in",
+    "\n \n Jag är för det mesta... \n 1) explosiv! Bäst att ta chansen när den kommer \n X) smart. Jag prioriterar mina resurser så att de ska räcka länge \n 2) obrydd. Det brukar aldrig vara något problem att räcka till",
+    "\n \n Andra beskriver ofta mig som... \n 1) speciell. Antingen älskar man mig eller så avskyr man mig \n X) ok. Ingen brukar ha någon speciell åsikt men ingen verka tycka illa om mig heller \n 2) ... Vilka andra? Folk brukar inte vara med mig om de inte måste",
+    "\n \n Mitt ego säger att jag är... \n 1) söt! \n X) ofta rätt sur... \n 2) meh",
+    "\n \n Jag är... \n 1) självsäker! Jag vet vem jag är och är nöjd med det \n X) ... ingen aning.... \n 2) inte direkt osäker... Men jag föredrar om jag inte syns",
+    "\n \n Folk brukar kalla mig... \n 1) olika smeknamn. Jag är så speciell att de inte kan bestämma sig \n X) mitt namn?.. Vad annars? \n 2) En hel del saker som inte ska talas öppet om.. Jag blir ofta asocierad med andra.. mindre trevliga.. typer",    
+]
+
+
 
 frågor = [
     ['Vilken frukt är bäst föräldrar?','PÄRON'],
@@ -63,6 +85,10 @@ frågor = [
     ['Vilket bär svarar bäst i telefon?', 'HALLON'],
     ['Vilken grönsak är bäst mamma?','MOROT'],
     ['Vilken grönsak är bäst pappa?','PAPRIKA'],
+]
+
+fruktkopia = [
+
 ]
 
 kopia = [
@@ -88,47 +114,50 @@ try:
                 time.sleep(1)
                 
                 print("\n \n","Vad stämmer bäst in på dig?")
-                print("\n","En varm sommardag föredrar jag...","\n","1) att ligga ute och jäsa i solen","\n X) att vara innomhus i den sköna skuggan","\n 2) att ligga i (jord)källaren och vänta på bättre tider")
-                b=input("\n >").upper()
-                svar(b,"1")
-                svar(b,"X")
-                svar(b,"2")
+                while n < 7:
+                    fruktfrågor()
+                    n += 1
+                # print("\n","En varm sommardag föredrar jag...","\n","1) att ligga ute och jäsa i solen","\n X) att vara innomhus i den sköna skuggan","\n 2) att ligga i (jord)källaren och vänta på bättre tider")
+                # b=input("\n >").upper()
+                # svar(b,"1")
+                # svar(b,"X")
+                # svar(b,"2")
                 
-                print("\n","\n","Jag tycker bäst om","\n","1) klara, starka färger som syns!","\n X) färger som inte är så uppseendeväckande, fast fortfarande färger","\n 2) svart. Eller andra jordnära färger som smälter in")
-                b=input("\n >").upper()
-                svar(b,"1")
-                svar(b,"X")
-                svar(b,"2")
+                # print("\n","\n","Jag tycker bäst om","\n","1) klara, starka färger som syns!","\n X) färger som inte är så uppseendeväckande, fast fortfarande färger","\n 2) svart. Eller andra jordnära färger som smälter in")
+                # b=input("\n >").upper()
+                # svar(b,"1")
+                # svar(b,"X")
+                # svar(b,"2")
 
-                print("\n","\n","Jag är för det mesta...","\n","1) explosiv! Bäst att ta chansen när den kommer","\n X) smart. Jag prioriterar mina resurser så att de ska räcka länge","\n 2) obrydd. Det brukar aldrig vara något problem att räcka till")
-                b=input("\n >").upper()
-                svar(b,"1")
-                svar(b,"X")
-                svar(b,"2")
+                # print("\n","\n","Jag är för det mesta...","\n","1) explosiv! Bäst att ta chansen när den kommer","\n X) smart. Jag prioriterar mina resurser så att de ska räcka länge","\n 2) obrydd. Det brukar aldrig vara något problem att räcka till")
+                # b=input("\n >").upper()
+                # svar(b,"1")
+                # svar(b,"X")
+                # svar(b,"2")
 
-                print("\n","\n","Andra beskriver ofta mig som...","\n","1) speciell. Antingen älskar man mig eller så avskyr man mig","\n X) ok. Ingen brukar ha någon speciell åsikt men ingen verka tycka illa om mig heller","\n 2) ... Vilka andra? Folk brukar inte vara med mig om de inte måste")
-                b=input("\n >").upper()
-                svar(b,"1")
-                svar(b,"X")
-                svar(b,"2")
+                # print("\n","\n","Andra beskriver ofta mig som...","\n","1) speciell. Antingen älskar man mig eller så avskyr man mig","\n X) ok. Ingen brukar ha någon speciell åsikt men ingen verka tycka illa om mig heller","\n 2) ... Vilka andra? Folk brukar inte vara med mig om de inte måste")
+                # b=input("\n >").upper()
+                # svar(b,"1")
+                # svar(b,"X")
+                # svar(b,"2")
 
-                print("\n","\n","Mitt ego säger att jag är...","\n","1) söt!","\n X) ofta rätt sur...","\n 2) meh")
-                b=input("\n >").upper()
-                svar(b,"1")
-                svar(b,"X")
-                svar(b,"2")
+                # print("\n","\n","Mitt ego säger att jag är...","\n","1) söt!","\n X) ofta rätt sur...","\n 2) meh")
+                # b=input("\n >").upper()
+                # svar(b,"1")
+                # svar(b,"X")
+                # svar(b,"2")
 
-                print("\n","\n","Jag är...","\n","1) självsäker! Jag vet vem jag är och är nöjd med det","\n X) ... ingen aning....","\n 2) inte direkt osäker... Men jag föredrar om jag inte syns")
-                b=input("\n >").upper()
-                svar(b,"1")
-                svar(b,"X")
-                svar(b,"2")
+                # print("\n","\n","Jag är...","\n","1) självsäker! Jag vet vem jag är och är nöjd med det","\n X) ... ingen aning....","\n 2) inte direkt osäker... Men jag föredrar om jag inte syns")
+                # b=input("\n >").upper()
+                # svar(b,"1")
+                # svar(b,"X")
+                # svar(b,"2")
 
-                print("\n","\n","Folk brukar kalla mig...","\n","1) olika smeknamn. Jag är så speciell att de inte kan bestämma sig","\n X) mitt namn?.. Vad annars?","\n 2) En hel del saker som inte ska talas öppet om.. Jag blir ofta asocierad med andra.. mindre trevliga.. typer")
-                b=input("\n >").upper()
-                svar(b,"1")
-                svar(b,"X")
-                svar(b,"2")
+                # print("\n","\n","Folk brukar kalla mig...","\n","1) olika smeknamn. Jag är så speciell att de inte kan bestämma sig","\n X) mitt namn?.. Vad annars?","\n 2) En hel del saker som inte ska talas öppet om.. Jag blir ofta asocierad med andra.. mindre trevliga.. typer")
+                # b=input("\n >").upper()
+                # svar(b,"1")
+                # svar(b,"X")
+                # svar(b,"2")
 
                 res1(ett,'Drakfrukt!')
                 res1(x,'Äpple!')
