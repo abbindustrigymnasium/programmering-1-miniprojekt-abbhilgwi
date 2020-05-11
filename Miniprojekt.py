@@ -1,4 +1,3 @@
-
 import random
 import time
 import math
@@ -10,7 +9,7 @@ två=0
 i=0
 n=0
 
-band = True
+spela = True
 
 def svar(val,alternativ):
     global ett
@@ -33,7 +32,6 @@ def fruktfrågor():
     svar(b,"X")
     svar(b,"2")
 
-
 def res1(var,frukt):
     if var >= 5:
         print("Du är en",frukt)
@@ -54,7 +52,6 @@ def poängen(gissa,svar):
     else:
         print('Tyvärr, fel svar :/ Rätt svar var',svar,'\n')
 
-
 def frågorna():
     kopia = frågor
     a = kopia.pop(random.randint(0,len(kopia)-1))
@@ -73,9 +70,6 @@ fruktenskaper = [
     "\n \n Jag är... \n 1) självsäker! Jag vet vem jag är och är nöjd med det \n X) ... ingen aning.... \n 2) inte direkt osäker... Men jag föredrar om jag inte syns",
     "\n \n Folk brukar kalla mig... \n 1) olika smeknamn. Jag är så speciell att de inte kan bestämma sig \n X) mitt namn?.. Vad annars? \n 2) En hel del saker som inte ska talas öppet om.. Jag blir ofta asocierad med andra.. mindre trevliga.. typer",    
 ]
-
-
-
 frågor = [
     ['Vilken frukt är bäst föräldrar?','PÄRON'],
     ['Vilken grönsak är Titanic mest rädd för?','ISBERGSSALLAD'],
@@ -86,79 +80,25 @@ frågor = [
     ['Vilken grönsak är bäst mamma?','MOROT'],
     ['Vilken grönsak är bäst pappa?','PAPRIKA'],
 ]
-
-fruktkopia = [
-
-]
-
-kopia = [
-
-]
-    
-
-
-
+fruktkopia = []
+kopia = []
 
 print("- "*18,"\n","-"*32,"\n Välkommen till Frågande Frukten!","\n","-"*32,"\n","*"*32,"\n","*"*7," "*6,"*"*7," ","*"*7,"\n","*"*6," ","*"*4," ","*"*6," ","*"*7, "\n","*"*12," ","*"*7," ","*"*7,"\n","*"*11," ","*"*8," ","*"*7,"\n","*"*10," ","*"*9," ","*"*7,"\n","*"*9," ","*"*10," ","*"*7,"\n","*"*32,"\n","*"*9," ","*"*10," ","*"*7,"\n","*"*32,"\n","-"*32,"\n"," "*7,"Vill du spela?!","\n"," "*6,"~"*17,"\n"," "*7,">Ja"," "*6,">Nej","\n","-"*32)
 a=input(">").upper()
 
-
-
 try:
     if a == "JA":
-        while band == True: 
+        while spela == True: 
             print("Vad vill du spela?","\n a) 'Min inre frukt'" "\n b) 'Fruktastiska frågor'","\n \n Skriv 'a' eller 'b'")
             d =input(">").upper()
+            
             if d == "A":
                 print("Vad frukt-ansvärt roligt!","\n Här kommer spelet;")
-                time.sleep(1)
-                
+                time.sleep(1)   
                 print("\n \n","Vad stämmer bäst in på dig?")
                 while n < 7:
                     fruktfrågor()
-                    n += 1
-                # print("\n","En varm sommardag föredrar jag...","\n","1) att ligga ute och jäsa i solen","\n X) att vara innomhus i den sköna skuggan","\n 2) att ligga i (jord)källaren och vänta på bättre tider")
-                # b=input("\n >").upper()
-                # svar(b,"1")
-                # svar(b,"X")
-                # svar(b,"2")
-                
-                # print("\n","\n","Jag tycker bäst om","\n","1) klara, starka färger som syns!","\n X) färger som inte är så uppseendeväckande, fast fortfarande färger","\n 2) svart. Eller andra jordnära färger som smälter in")
-                # b=input("\n >").upper()
-                # svar(b,"1")
-                # svar(b,"X")
-                # svar(b,"2")
-
-                # print("\n","\n","Jag är för det mesta...","\n","1) explosiv! Bäst att ta chansen när den kommer","\n X) smart. Jag prioriterar mina resurser så att de ska räcka länge","\n 2) obrydd. Det brukar aldrig vara något problem att räcka till")
-                # b=input("\n >").upper()
-                # svar(b,"1")
-                # svar(b,"X")
-                # svar(b,"2")
-
-                # print("\n","\n","Andra beskriver ofta mig som...","\n","1) speciell. Antingen älskar man mig eller så avskyr man mig","\n X) ok. Ingen brukar ha någon speciell åsikt men ingen verka tycka illa om mig heller","\n 2) ... Vilka andra? Folk brukar inte vara med mig om de inte måste")
-                # b=input("\n >").upper()
-                # svar(b,"1")
-                # svar(b,"X")
-                # svar(b,"2")
-
-                # print("\n","\n","Mitt ego säger att jag är...","\n","1) söt!","\n X) ofta rätt sur...","\n 2) meh")
-                # b=input("\n >").upper()
-                # svar(b,"1")
-                # svar(b,"X")
-                # svar(b,"2")
-
-                # print("\n","\n","Jag är...","\n","1) självsäker! Jag vet vem jag är och är nöjd med det","\n X) ... ingen aning....","\n 2) inte direkt osäker... Men jag föredrar om jag inte syns")
-                # b=input("\n >").upper()
-                # svar(b,"1")
-                # svar(b,"X")
-                # svar(b,"2")
-
-                # print("\n","\n","Folk brukar kalla mig...","\n","1) olika smeknamn. Jag är så speciell att de inte kan bestämma sig","\n X) mitt namn?.. Vad annars?","\n 2) En hel del saker som inte ska talas öppet om.. Jag blir ofta asocierad med andra.. mindre trevliga.. typer")
-                # b=input("\n >").upper()
-                # svar(b,"1")
-                # svar(b,"X")
-                # svar(b,"2")
-
+                    n += 1    
                 res1(ett,'Drakfrukt!')
                 res1(x,'Äpple!')
                 res1(två,'Potats!')
@@ -167,7 +107,6 @@ try:
                 res2(x,två,'Morot!')
                 res3(ett,x,två)
                 time.sleep(1)
-
                 print('\n Vad vill du göra nu?!')
                 time.sleep(1)
                 print('Vill du fortsätta eller sluta spela?!',"\n a) 'Fortsätta'" "\n b) 'Sluta spela'","\n \n Skriv 'a' eller 'b'")
@@ -175,11 +114,10 @@ try:
                 if e == "B":
                     print('Okejdå, ses snart igen!')
                     time.sleep(2)
-                    band = False
+                    spela = False
                 elif e == "A":
                     print('Vad kul!')
-                    time.sleep(1)
-
+                    time.sleep(1)           
             
             elif d == "B":
                 print("Vad banannars skulle du vilja?!", '\n Du kommer att få frågor och så svarar du den frukt, grönsak eller liknanade som du tror är rätt!','\n Ps. Stavning är viktigt så check den innan du svarar :P')
@@ -200,17 +138,14 @@ try:
                 if e == "B":
                     print('Okejdå, ses snart igen!')
                     time.sleep(2)
-                    band = False
+                    spela = False
                 elif e == "A":
                     print('Vad kul!')
                     time.sleep(1)
-
+            
             else:
                 raise KeyboardInterrupt
-        
-                
-
-
+    
     elif a == "NEJ":
         print("Nej! Vad synd :(","\n","Säg bara till om du ångrar dig...")
         time.sleep(1)
@@ -224,16 +159,10 @@ try:
         time.sleep(0.5)
         print("...fattar vinken")
         time.sleep(0.5)
-        print("\n","\n")
+        print("\n","\n")    
     
     else:
         raise KeyboardInterrupt
 
-
 except KeyboardInterrupt:
     print("Jag tror du missförstod...","\n","Försök igen med den gröna knappen")
-
-
-
-
-
