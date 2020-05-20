@@ -1,6 +1,5 @@
 import random                                                                        #importerar det som behövs
 import time
-import math
 
 poäng=0                                                                              #En variabel som lagrar antalet poäng, B spelet
 ett=0                                                                                #1,x,2 varibler som lagrar hur många gånger användaren svarat vardera alterntiv, A spelet
@@ -23,14 +22,15 @@ def svar(val,alternativ):                                                       
         elif alternativ== "X" or "x":
             x += 1
 
-def fruktfrågor():                                                                  #Deffinierar en metod som lottara en fråga ur en lista och skriver ut den samt använder metoden 'svar', A spelet
-    fruktkopia = fruktenskaper                                                      #Säger att en kopia av listan med alla frågor är lika dan som listan med frågorna, det gör att det går att ta bort frågor ur kopian utan att behöva lägga tillbaka dem innan en spelar igen    
-    z = fruktkopia.pop(random.randint(0,len(fruktkopia)-1))                         #Tar ur ett random valt index ur kopian som representerar en fråga som nu lagras i variablen z
-    print(z)                                                                        #Skriver ut frågan
-    b=input("\n >").upper()                                                         #Användarens svar ovanlat till CapsLock för att det inte ska vara shiftlägeskänsligt
-    svar(b,"1")                                                                     #Använder metoden svar för att se om användaren svarat 1, x eller 2 och lägger sedan till 1 i rätt variabel
-    svar(b,"X")
-    svar(b,"2")
+def inrefrukt():                                                                    #Deffinierar en metod som lottara en fråga ur en lista och skriver ut den samt använder metoden 'svar', A spelet
+    kopia1 = fruktegenskaper                                                        #Säger att en kopia av listan med alla frågor är lika dan som listan med frågorna, det gör att det går att ta bort frågor ur kopian utan att behöva lägga tillbaka dem innan en spelar igen    
+    while len(kopia1) > 0:                                                          #Sägar att så länge det finns alternativ kvar i 'kopia1' så ska metoden köras
+        z = kopia1.pop(random.randint(0,len(kopia1)-1))                             #Tar ur ett random valt index ur kopian som representerar en fråga som nu lagras i variablen z
+        print(z)                                                                    #Skriver ut frågan
+        b=input("\n >").upper()                                                     #Användarens svar ovanlat till CapsLock för att det inte ska vara shiftlägeskänsligt
+        svar(b,"1")                                                                 #Använder metoden svar för att se om användaren svarat 1, x eller 2 och lägger sedan till 1 i rätt variabel
+        svar(b,"X")
+        svar(b,"2")
 
 def res1(var,frukt):                                                                #Alternatv 1 av resultatet, ifall någon av variablerna är lika med eller större än fem, A spelet
     if var >= 5:
@@ -52,16 +52,20 @@ def poängen(gissa,svar):                                                       
     else:
         print('Tyvärr, fel svar :/ Rätt svar var',svar,'\n')
 
-def frågorna():                                                                     #Deffinierar en metod som lottar en fråga och dess svar ur en lista, tar isär frågan och svaret och skriver ut frågan samt använder metoden 'poäng', B spelet
-    kopia = frågor                                                                  #Visar att en kopia av lstan med frågor och var innehåller exakt samma saker som listan 'frågor'
-    a = kopia.pop(random.randint(0,len(kopia)-1))                                   #Tar ut ett random valt index ur kopian och lagrar den i variabeln a
-    frågan = a[0]                                                                   #Placerar frågan och dess svar i olika variabler
-    svaret = a[1]
-    print(frågan)                                                                   #Skriver ut frågan
-    f = input('>').upper()                                                          #Användarens input lagras i variabeln f och görs om till CapsLock
-    poängen(f,svaret)                                                               #Använder metoden 'svar' med användarens input och svaret på frågan
+def fruktfrågor():                                                                  #Deffinierar en metod som lottar en fråga och dess svar ur en lista, tar isär frågan och svaret och skriver ut frågan samt använder metoden 'poäng', B spelet
+    kopia2 = frågor                                                                 #Visar att en kopia av lstan med frågor och var innehåller exakt samma saker som listan 'frågor'
+    while len(kopia2) > 0:                                                          #Säger att så länge det finns alternativ kvar i 'kopia2' så ska metoden köras
+        a = kopia2.pop(random.randint(0,len(kopia2)-1))                             #Tar ut ett random valt index ur kopian och lagrar den i variabeln a
+        frågan = a[0]                                                               #Placerar frågan och dess svar i olika variabler
+        svaret = a[1]
+        print(frågan)                                                               #Skriver ut frågan
+        f = input('>').upper()                                                      #Användarens input lagras i variabeln f och görs om till CapsLock
+        poängen(f,svaret)                                                           #Använder metoden 'svar' med användarens input och svaret på frågan
 
-fruktenskaper = [                                                                   #En lista med frågor och alternativ, A spelet
+def avslut():                                                                       #Deffinierar en metod som avslutar loopar
+    raise KeyboardInterrupt
+
+fruktegenskaper = [                                                                 #En lista med frågor och alternativ, A spelet
     "\n \n En varm sommardag föredrar jag... \n 1) att ligga ute och jäsa i solen \n X) att vara innomhus i den sköna skuggan \n 2) att ligga i (jord)källaren och vänta på bättre tider",
     "\n \n Jag tycker bäst om \n 1) klara, starka färger som syns! \n X) färger som inte är så uppseendeväckande, fast fortfarande färger \n 2) svart. Eller andra jordnära färger som smälter in",
     "\n \n Jag är för det mesta... \n 1) explosiv! Bäst att ta chansen när den kommer \n X) smart. Jag prioriterar mina resurser så att de ska räcka länge \n 2) obrydd. Det brukar aldrig vara något problem att räcka till",
@@ -80,8 +84,8 @@ frågor = [                                                                     
     ['Vilken grönsak är bäst mamma?','MOROT'],
     ['Vilken grönsak är bäst pappa?','PAPRIKA'],
 ]
-fruktkopia = []                                                                     #De två kopiorna av listor som är tomma till dess att de används i metoderna 'fruktfrågor' repektive 'frågorna'
-kopia = []
+kopia1 = []                                                                     #De två kopiorna av listor som är tomma till dess att de används i metoderna 'inrefrukt' repektive 'fruktfrågor'
+kopia2 = []
 
 print("- "*18,"\n","-"*32,"\n Välkommen till Frågande Frukten!","\n","-"*32,"\n","*"*32,"\n","*"*7," "*6,"*"*7," ","*"*7,"\n","*"*6," ","*"*4," ","*"*6," ","*"*7, "\n","*"*12," ","*"*7," ","*"*7,"\n","*"*11," ","*"*8," ","*"*7,"\n","*"*10," ","*"*9," ","*"*7,"\n","*"*9," ","*"*10," ","*"*7,"\n","*"*32,"\n","*"*9," ","*"*10," ","*"*7,"\n","*"*32,"\n","-"*32,"\n"," "*7,"Vill du spela?!","\n"," "*6,"~"*17,"\n"," "*7,">Ja"," "*6,">Nej","\n","-"*32)    #Ett designat välkomstmeddelande med frågan ifall användaren vill spela
 a=input(">").upper()                                                                #Användarens input fast i CapsLock, lagrad i variabeln a
@@ -96,9 +100,7 @@ try:                                                                            
                 print("Vad frukt-ansvärt roligt!","\n Här kommer spelet;")          #Meddelande för att presentera spelet
                 time.sleep(1)                                                       #En kort paus för att läsaren ska hinna läsa
                 print("\n \n","Vad stämmer bäst in på dig? \n(Om du inte anger ett gilltigt alternativ kommer svaret inte att räknas med)")                        #Förklarar vad användaren ska svara på
-                while n < 7:                                                        #Medan variabeln n är under 7 ska metoden 'fruktfrågor' köras
-                    fruktfrågor()
-                    n += 1                                                          #Lägger till 1 till variabeln n
+                inrefrukt()                                                         #Kör metoden 'inrefrukt', som alltså är spelet
                 res1(ett,'Drakfrukt!')                                              #Kör första alternativet av resultat med variabeln ett
                 res1(x,'Äpple!')                                                    #Kör första alternativet av resultat med variabeln x
                 res1(två,'Potats!')                                                 #Kör första alternativet av resultat med variabeln två
@@ -123,9 +125,7 @@ try:                                                                            
                 print("Vad banannars skulle du vilja?!", '\n Du kommer att få frågor och så svarar du den frukt, grönsak eller liknanade som du tror är rätt!','\n Ps. Stavning är viktigt så check den innan du svarar :P')    #Förklarar vad spelet går ut på och vad användaren ska göra
                 time.sleep(2)                                                       #Paus för att användaren ska hinna läsa instruktionerna
                 print('\n Nu börjar vi;','\n')                                      #Förklarar att spelet börjar                                     
-                while i < 8:                                                        #Så länge variabeln i är mindra än 8 ska metoden 'frågorna' köras
-                    frågorna()
-                    i +=1                                                           #Lägger till 1 till variabeln i
+                fruktfrågor()                                                       #Kör metoden 'fruktfrågor', som alltså är spelet
                 if poäng < 4:                                                       #Beroende på om användaren får mindre än fyra poäng eller inte så berättar programmet det olika för att vara trevlig
                     print('Du fick',str(poäng),'rätt, det var iaf ett bra försök!')
                 else:
@@ -144,7 +144,7 @@ try:                                                                            
                     time.sleep(1)
             
             else:                                                                   #Ifall användaren inte väljer ett gilltigt alternativ kommer den att komma till except
-                raise KeyboardInterrupt
+                avslut()
     
     elif a == "NEJ":                                                                #Ifall användaren svarar att den inte vill spela försöker programmet övertyga användaren om motsatsen, sedan kommer den till except
         print("Nej! Vad synd :(","\n","Säg bara till om du ångrar dig...")
@@ -162,7 +162,7 @@ try:                                                                            
         print("\n","\n")    
     
     else:                                                                           #Ifall användaren inte ger ett gilltigt svar på frågan om den vill spela kommer den till except
-        raise KeyboardInterrupt
+        avslut()
 
 except KeyboardInterrupt:                                                           #Except, ifall någonting gott snett på vägen kommer programmet att anslutas men en kommentar på att användaren skrivit in någonting fel
     print("Jag tror du missförstod...","\n","Försök igen med den gröna knappen")
