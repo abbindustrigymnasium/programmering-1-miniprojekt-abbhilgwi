@@ -11,7 +11,8 @@ I frågesporten finns det två olika alternativ till spel, ett som bygger på pr
 ### Pseudokod:
 
 
-### Tankar kring projektet
+
+### Tankar kring projektet:
 
 
 ## **Utvärdering**
