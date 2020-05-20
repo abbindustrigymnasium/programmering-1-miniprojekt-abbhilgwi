@@ -57,4 +57,8 @@ Kodmässigt är det möjligt att koden fått en tydligare struktur ifall jag fr�
 
 * **Hur kan kunskaperna användas vidare?**
 
+Kunskaperna från detta projekt går att använda sig av för att skapa spel eller liknande som behöver lotta en fråga och sammanhörande svar upprepade gånger. Det finns användbara metoder som komprimerar koden betydligt och systemet för att slumpmässigt välja ett objekt ur en lista är mycket användbart. Att använda mellanrum i outputten för att skapa en samtalsmässig strutur är enligt min åsikt avgörande för att användaren ska känna att den inte bara kör ett datrprogram utan även *pratar* med datorn
 
+Ifall projektet återskapats idag hade jag kunnat utveckla programmet genom att lagra varje användares *Inre frukt* och *poäng* i en fil som sedan kunnat användas för att exempelvis jämföra vilken som är den smartaste frukten. Vid denna fuktion hade det behövts begränsas till att varje användare endast får köra varje spel en gång alternativt att den informeras om att resultaten endast sparas första gången. Kanske hade det gått att skapa en inloggning till varje ny användare så att denne kunnat se sina tidigare resultt ifall den skriver in ett visst lösenord eller liknande. 
+
+Det finns mycket som dessa kunskaper kan användas till och programmet går alltid att utvecklas vidare för att hitta nya kunskaper.
